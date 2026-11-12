@@ -28,9 +28,8 @@ for (const t of list) {
   const exists = run ? sh(gh, ['repo', 'view', repo, '--json', 'name']).status === 0 : false;
   const hasOrigin = sh('git', ['-C', t.root, 'remote', 'get-url', 'origin']).status === 0;
   const steps = [];
-  // GitHub caps descriptions at 350 characters: use the first sentence, or cut at a word boundary.
-  const first = t.description.split(/(?<=\.)\s/)[0];
-  const desc = first.length <= 350 ? first : `${t.description.slice(0, 349).replace(/\s+\S*$/, '')}…`;
+  // GitHub caps descriptions at 350 characters: cut at a word boundary (sentence splitting trips on "incl.", "e.g.").
+  const desc = t.description.length <= 350 ? t.description : `${t.description.slice(0, 349).replace(/[\s,;:(-]+\S*$/, '')}…`;
   if (!exists) steps.push([gh, ['repo', 'create', repo, `--${visibility}`, '--description', desc]]);
   if (!hasOrigin) steps.push(['git', ['-C', t.root, 'remote', 'add', 'origin', `https://github.com/${repo}.git`]]);
   steps.push(['git', ['-C', t.root, 'push', '-u', 'origin', 'main']]);
