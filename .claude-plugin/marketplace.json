@@ -11,7 +11,7 @@
       "name": "perfect-programming-plugin",
       "source": {
         "source": "github",
-        "repo": "OWNER/perfect-programming-plugin"
+        "repo": "ValentinHol0/perfect-programming-plugin"
       },
       "description": "Absolute mode for Claude Code and Antigravity: /absolute takes engineering work end to end - websites, web and mobile apps, desktop programs, APIs. Code map and risk scan, root-cause debugging from CI or PR comments, TDD subagent swarm with security and review gates, real-reference design pipeline, product assets, site and store release checks, destructive-command guard. Core of the Perfect Suite; domain work goes to its addons.",
       "version": "3.3.0",
@@ -37,7 +37,7 @@
       "name": "perfect-ads-plugin",
       "source": {
         "source": "github",
-        "repo": "OWNER/perfect-ads-plugin"
+        "repo": "ValentinHol0/perfect-ads-plugin"
       },
       "description": "Performance advertising on Meta, TikTok and Google: money-first campaign architecture, learning-phase budgets, Advantage+, Spark Ads and Performance Max setup, statistically cautious creative testing, UTM and Conversions/Events API tracking, CPA/ROAS/MER analysis, with Ukrainian small-store defaults.",
       "version": "1.0.0",
@@ -60,7 +60,7 @@
       "name": "perfect-brand-plugin",
       "source": {
         "source": "github",
-        "repo": "OWNER/perfect-brand-plugin"
+        "repo": "ValentinHol0/perfect-brand-plugin"
       },
       "description": "Brand and visual production as real files: brand identity, SVG logo systems with favicon and app-icon exports, brand books and guideline boards, Meta and TikTok ad creatives in verified sizes and safe zones, product imagery with an honesty rule, and social templates rendered to PNG. Ukrainian market by default.",
       "version": "1.0.0",
@@ -84,7 +84,7 @@
       "name": "perfect-business-plugin",
       "source": {
         "source": "github",
-        "repo": "OWNER/perfect-business-plugin"
+        "repo": "ValentinHol0/perfect-business-plugin"
       },
       "description": "Ukrainian sole-proprietor (ФОП) operations: single-tax groups and the general system, ЄП, military levy and ЄСВ calculations from one dated data file, a reporting and payment calendar with .ics export, invoices and acts, ПРРО rules, and an income ledger from Monobank/PrivatBank statements, with sourced rules and a verify-with-an-accountant line.",
       "version": "1.0.0",
@@ -105,7 +105,7 @@
       "name": "perfect-docs-plugin",
       "source": {
         "source": "github",
-        "repo": "OWNER/perfect-docs-plugin"
+        "repo": "ValentinHol0/perfect-docs-plugin"
       },
       "description": "Office files that look professional and calculate correctly: DOCX, XLSX, PPTX, PDF and HTML slide decks, with Ukrainian business templates (contracts, invoices, acts, waybills, commercial proposals, reports), exact totals, VAT and amounts in words from tested scripts, sourced required fields and an independent proofreader.",
       "version": "1.0.0",
@@ -127,7 +127,7 @@
       "name": "perfect-legal-plugin",
       "source": {
         "source": "github",
-        "repo": "OWNER/perfect-legal-plugin"
+        "repo": "ValentinHol0/perfect-legal-plugin"
       },
       "description": "Legal texts for Ukrainian websites and online shops (public offer, privacy and cookie policies with consent rules, returns, terms of use), contract review with redline tables and NDA/service/IP-assignment drafts, under Ukrainian law with GDPR and EU consumer additions, sourced and ending with a verify-with-a-lawyer line.",
       "version": "1.0.0",
@@ -148,7 +148,7 @@
       "name": "perfect-marketing-plugin",
       "source": {
         "source": "github",
-        "repo": "OWNER/perfect-marketing-plugin"
+        "repo": "ValentinHol0/perfect-marketing-plugin"
       },
       "description": "Marketing that converts: landing, email and ad copy with native-quality Ukrainian, content SEO and GEO, GA4/PostHog tracking plans with a UTM validator, consent planning, A/B test design with a sample-size calculator, lifecycle email and launch plans.",
       "version": "1.0.0",
@@ -172,7 +172,7 @@
       "name": "perfect-research-plugin",
       "source": {
         "source": "github",
-        "repo": "OWNER/perfect-research-plugin"
+        "repo": "ValentinHol0/perfect-research-plugin"
       },
       "description": "Evidence before decisions: bottom-up market sizing (TAM/SAM/SOM) with a calculator that refuses unsourced numbers, competitor teardowns from real pages, customer interview guides and synthesis, and one-page decision memos. Every claim cited with URL and access date.",
       "version": "1.0.0",
@@ -194,7 +194,7 @@
       "name": "perfect-selling-plugin",
       "source": {
         "source": "github",
-        "repo": "OWNER/perfect-selling-plugin"
+        "repo": "ValentinHol0/perfect-selling-plugin"
       },
       "description": "E-commerce product intelligence for Ukraine and beyond: evidence-based product audits and scoring, exact unit economics with Nova Poshta COD and refusals, real ad-library research, sourcing and landed cost, competitor funnels, offers and pricing, Rozetka/Prom/Epicentr listings.",
       "version": "1.0.0",
@@ -218,7 +218,7 @@
       "name": "perfect-social-plugin",
       "source": {
         "source": "github",
-        "repo": "OWNER/perfect-social-plugin"
+        "repo": "ValentinHol0/perfect-social-plugin"
       },
       "description": "Social media marketing that people engage with: strategy and platform choice incl. Telegram channels, dated content calendars with Ukrainian holidays (CSV + ICS), posts and carousels, Reels/TikTok/Shorts scripts, community replies and crisis playbook, analytics with ER/ERR scripts. Natural Ukrainian copy without Russianisms.",
       "version": "1.0.0",
@@ -243,7 +243,7 @@
       "name": "perfect-teach-plugin",
       "source": {
         "source": "github",
-        "repo": "OWNER/perfect-teach-plugin"
+        "repo": "ValentinHol0/perfect-teach-plugin"
       },
       "description": "Teaching materials that work in class: NUSh lesson plans, full methodological packages, tests with answer keys and rubrics on the Ukrainian scales, lesson presentations and adult or online courses, age-adapted and independently reviewed, with a test builder for shuffled variants and Google Forms.",
       "version": "1.0.0",
@@ -265,7 +265,7 @@
       "name": "perfect-translate-plugin",
       "source": {
         "source": "github",
-        "repo": "OWNER/perfect-translate-plugin"
+        "repo": "ValentinHol0/perfect-translate-plugin"
       },
       "description": "Localisation that reads native: register-adapted translation and transcreation between Ukrainian, English, Polish, German and more, i18n string files with correct CLDR plurals, brand termbases and translation QA with an exact i18n file checker.",
       "version": "1.0.0",

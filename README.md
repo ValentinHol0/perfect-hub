@@ -34,12 +34,11 @@ node scripts/install.mjs --only core,docs --claude --run
 ```
 Claude Code gets `claude plugin install <plugin> --marketplace <folder> --scope user`; Antigravity gets `agy plugin install <folder>`.
 
-**From GitHub (after the repositories are published):**
+**From GitHub** (published at github.com/ValentinHol0):
 ```
-node scripts/build-marketplace.mjs --owner <github user or org>   # writes .claude-plugin/marketplace.json, saves the owner in hub.json
-claude plugin marketplace add <owner>/perfect-hub
+claude plugin marketplace add ValentinHol0/perfect-hub
 claude plugin install perfect-programming-plugin@perfect-suite      # then any addon: perfect-docs-plugin@perfect-suite …
-agy plugin install https://github.com/<owner>/perfect-programming-plugin
+agy plugin install https://github.com/ValentinHol0/perfect-programming-plugin   # then any addon repository the same way
 ```
 **claude.ai organisation plugins:** `node scripts/pack.mjs` → `dist/<plugin>-<version>.zip` (zip root contains `.claude-plugin/`), upload each as a plugin version.
 
