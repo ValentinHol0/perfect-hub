@@ -33,12 +33,13 @@ for (const t of list) {
   if (!exists) steps.push([gh, ['repo', 'create', repo, `--${visibility}`, '--description', desc]]);
   if (!hasOrigin) steps.push(['git', ['-C', t.root, 'remote', 'add', 'origin', `https://github.com/${repo}.git`]]);
   steps.push(['git', ['-C', t.root, 'push', '-u', 'origin', 'main']]);
+  let ok = true;
   for (const [bin, a] of steps) {
     const shown = `${bin === gh ? 'gh' : bin} ${a.map((x) => (/\s/.test(x) ? `"${x}"` : x)).join(' ')}`;
     if (!run) { console.log(shown); continue; }
     const r = sh(bin, a);
-    if (r.status !== 0) { console.error(`fail ${t.name}: ${shown}\n${(r.stderr || r.stdout).trim()}`); failed++; break; }
+    if (r.status !== 0) { console.error(`fail ${t.name}: ${shown}\n${(r.stderr || r.stdout).trim()}`); failed++; ok = false; break; }
   }
-  if (run) console.log(`ok   ${t.name} → https://github.com/${repo}`);
+  if (run && ok) console.log(`ok   ${t.name} → https://github.com/${repo}`);
 }
 process.exit(failed ? 1 : 0);
