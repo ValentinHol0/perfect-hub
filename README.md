@@ -49,8 +49,9 @@ agy plugin install https://github.com/ValentinHol0/perfect-programming-plugin   
 | `scripts/build-marketplace.mjs [--owner X] [--check]` | Regenerate (or verify) the hub marketplace from the plugin manifests |
 | `scripts/install.mjs` | Install commands for Claude Code / Antigravity, local or GitHub |
 | `scripts/pack.mjs` | Zip each plugin's committed HEAD for upload |
+| `scripts/publish.mjs [--visibility private\|public] [--run]` | Create the GitHub repositories that don't exist yet (core, addons, hub) and push `main` to each — never forced; prints the plan without `--run` |
 | core `scripts/new-addon.mjs` | Scaffold a new addon repository next to the others (manifests, rules, entry skill, shared files, icon, git) |
 | core `scripts/sync-addons.mjs [--check]` | Copy the core-owned shared files (`check-plugin.mjs`, `references/harness.md`, CI, git attributes) into every addon |
 | core `scripts/render-icon.mjs <plugin>` | Render a plugin's `assets/logo.svg` to `assets/icon.png` |
 
-Release flow: change → plugin's own checks → `node scripts/check-all.mjs --external` → bump the plugin's version in both manifests and its `marketplace.json` → commit in that repository → `node scripts/build-marketplace.mjs` → commit the hub → push (each repository) → `pack.mjs` for claude.ai.
+Release flow: change → plugin's own checks → `node scripts/check-all.mjs --external` → bump the plugin's version in both manifests and its `marketplace.json` → commit in that repository → `node scripts/build-marketplace.mjs` → commit the hub → `node scripts/publish.mjs --run` (pushes every repository) → `pack.mjs` for claude.ai.
