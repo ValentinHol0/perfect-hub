@@ -1,0 +1,17 @@
+{
+  "skill_name": "absolute-ui-ux",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Implement an accessible 'Invite team member' settings dialog in HTML/CSS/JS. Use native <dialog>, labelled fields with inline validation, visible focus rings, Esc/close behaviour with focus return, and reduced-motion-aware transitions.",
+      "expected_output": "Native dialog with labels, aria-invalid/aria-describedby errors, focus-visible styles, focus return, prefers-reduced-motion handling.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "Implement a high-density invoices data table component: sortable column header buttons with aria-sort, tabular numbers right-aligned, status badges with icon + text, row actions menu, pagination, empty state, and mobile-first responsive behaviour.",
+      "expected_output": "Semantic table (not role=grid) with aria-sort header buttons, tabular-nums, accessible badges, pagination, empty state and responsive handling.",
+      "files": []
+    }
+  ]
+}

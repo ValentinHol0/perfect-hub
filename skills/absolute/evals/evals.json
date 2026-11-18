@@ -1,0 +1,250 @@
+{
+  "skill_name": "absolute",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "/absolute додай пагінацію до таблиці замовлень і тести",
+      "expected_output": "Route line naming P1 BUILD with Tier S or M; code-mapper or direct read of the table component; failing test before implementation; reviewer gate; report in Ukrainian with test command output.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "announces_route",
+          "type": "contains",
+          "value": "Route:"
+        },
+        {
+          "name": "build_pipeline",
+          "type": "contains",
+          "value": "P1"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "/absolute чекаут падає з 500 після оновлення stripe, виправ",
+      "expected_output": "Route P2 FIX: reproduction first (failing test or captured error), ranked hypotheses, root cause with file:line, minimal fix, regression test, security-auditor because payments are involved.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "fix_pipeline",
+          "type": "contains",
+          "value": "P2"
+        },
+        {
+          "name": "root_cause_stated",
+          "type": "contains",
+          "value": "root cause"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "/absolute build me a SaaS landing page for an invoicing tool and make sure it works on mobile",
+      "expected_output": "Composite route P4 DESIGN → P1 BUILD: Reference Brief with cited URLs, committed direction with contrast-verified tokens, design-lint run, screenshots at 375/768/1280, pre-flight score.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "design_pipeline",
+          "type": "contains",
+          "value": "P4"
+        },
+        {
+          "name": "contrast_verified",
+          "type": "contains",
+          "value": "contrast"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "/absolute --plan-only migrate our Express monolith to Fastify",
+      "expected_output": "Route P5 PLAN at Standard tier; no code changes; plan ends with '### Task N:' list ready for ledger.js init; stops after planning because of --plan-only.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "plan_pipeline",
+          "type": "contains",
+          "value": "P5"
+        },
+        {
+          "name": "task_headings",
+          "type": "contains",
+          "value": "### Task 1"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "/absolute зроби логотип і фірмовий стиль для мого барбершопу",
+      "expected_output": "Route P9 COMPONENT: hands the logo and identity to the brand component (/brand, perfect-hub:brand); a costly brand-direction choice goes to a quick council with the Brand seat; answers in Ukrainian.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "component_pipeline",
+          "type": "contains",
+          "value": "P9"
+        },
+        {
+          "name": "names_brand",
+          "type": "contains",
+          "value": "brand"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "/absolute що таке event sourcing і чи треба воно нам?",
+      "expected_output": "Route P8 RESEARCH: direct answer with trade-offs tied to the project's context, no ledger, no subagents, no code changes.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "research_pipeline",
+          "type": "contains",
+          "value": "P8"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "/absolute продовжуй",
+      "expected_output": "Route P11 RESUME: runs ledger.js status and ledger.js next, continues the next ready task without re-planning completed work.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "resume_pipeline",
+          "type": "contains",
+          "value": "P11"
+        },
+        {
+          "name": "uses_ledger",
+          "type": "contains",
+          "value": "ledger.js"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "/absolute Postgres чи Firebase для нашого застосунку запису клієнтів? Вирішіть",
+      "expected_output": "Convenes absolute-council (standard tier): seats such as Architect, Backend, Product, Security, Contrarian; blind R1 proposals, anonymised R2 critique with credit, chair decision; DECISION.md under .planning/council/; answers in Ukrainian with the decision and the strongest overruled objection.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "council",
+          "type": "contains",
+          "value": "council"
+        },
+        {
+          "name": "decision_record",
+          "type": "contains",
+          "value": "DECISION.md"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "/absolute review the security of the auth module",
+      "expected_output": "Route P7 REVIEW in module-audit mode (no diff): entry points → data flow to sinks → dependency audit → security-auditor and reviewer with the file list; findings ranked with file:line; no code changes.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "review_pipeline",
+          "type": "contains",
+          "value": "P7"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "/absolute --fast rename the config option `timeout` to `timeoutMs` everywhere",
+      "expected_output": "Public-contract rename: asks whether to keep a deprecated alias (default yes), then P1 Tier S with tests for old and new names; one reviewer with the auditor checklist appended.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "mentions_alias",
+          "type": "contains",
+          "value": "alias"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "/absolute create a new skill that formats changelogs",
+      "expected_output": "Route P10 AUTHOR: skill-creator, destination asked or inferred (project skills folder unless the working folder is this plugin), SKILL.md plus 3 trigger prompts; no full benchmark loop without --max.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "author_pipeline",
+          "type": "contains",
+          "value": "P10"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "/absolute make a CLI tool that resizes images",
+      "expected_output": "Route P1 BUILD Tier M (new small project): git preflight (asks before git init, root commit), ≤4 units with acceptance commands, verifier runs the CLI on a sample input instead of starting a server.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "build_pipeline",
+          "type": "contains",
+          "value": "P1"
+        },
+        {
+          "name": "tier_m",
+          "type": "contains",
+          "value": "Tier: M"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "/absolute зроби іконки застосунку, фавікон і OG-картинку для мого Next.js сайту",
+      "expected_output": "Route P6 ASSETS via absolute-assets: master SVG, assets.mjs icons, OG card rendered at 1200x630, files wired into app/ conventions, site-check run.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "assets_pipeline",
+          "type": "contains",
+          "value": "P6"
+        },
+        {
+          "name": "uses_assets_script",
+          "type": "contains",
+          "value": "assets.mjs"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "/absolute CI на моєму PR червоний, розберись і полагодь",
+      "expected_output": "Route P2 FIX from a red CI run: reads the failing job log with gh run view --log-failed, reproduces the job command locally, root cause with file:line, minimal fix with regression proof.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "fix_pipeline",
+          "type": "contains",
+          "value": "P2"
+        },
+        {
+          "name": "reads_ci_log",
+          "type": "contains",
+          "value": "gh run view"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "/absolute наш лендінг виглядає як згенерований ШІ, виправ",
+      "expected_output": "Routes to antislop: runs antislop.mjs, ranks P0/P1 findings, critic pass, fixes without inventing facts, rescans to 0 P0 and score <= 25.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "antislop",
+          "type": "contains",
+          "value": "antislop"
+        }
+      ]
+    }
+  ]
+}

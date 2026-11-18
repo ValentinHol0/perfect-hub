@@ -1,0 +1,107 @@
+<!doctype html>
+<!--
+  Perfect Brand — social template starter kit.
+  Copy to deliverables/brand/<slug>/social/templates.html, replace tokens and copy, then render:
+    node <PLUGIN_ROOT>/scripts/render-templates.mjs templates.html --out deliverables/brand/<slug>/social/png
+  Every frame: data-frame (file name) + data-size (platform size). Remove class "guides" from <body> before the final render.
+-->
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Social templates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F3EFE6;   /* background */
+    --ink: #14211B;     /* text — 14.5:1 on paper (contrast.mjs) */
+    --muted: #4A5A52;   /* secondary text — 6.4:1 on paper */
+    --brand: #0E3B2E;   /* primary */
+    --on-brand: #E8F5C8;
+    --accent: #C8F06A;  /* accent shapes only, never body text on paper */
+    --font-display: "Unbounded", system-ui, sans-serif;
+    --font-text: "Onest", system-ui, sans-serif;
+    --pad: 88px;        /* outer margin on 1080-wide frames */
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #2a2a2a; display: grid; gap: 40px; padding: 40px; font-family: var(--font-text); color: var(--ink); }
+  .frame { position: relative; overflow: hidden; background: var(--paper); }
+  .post { width: 1080px; height: 1350px; }
+  .story { width: 1080px; height: 1920px; }
+  .display { font-family: var(--font-display); font-weight: 800; line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance; }
+  .label { font: 600 30px/1.2 var(--font-text); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .logo { position: absolute; width: 64px; height: 64px; color: var(--brand); }
+  .logo svg { width: 100%; height: 100%; display: block; }
+
+  /* Post: tip / statement */
+  .tip { padding: var(--pad); display: flex; flex-direction: column; justify-content: space-between; }
+  .tip h1 { font-size: 80px; max-width: 15ch; }
+  .tip p { font-size: 40px; line-height: 1.35; max-width: 26ch; color: var(--muted); }
+  .tip .logo { right: var(--pad); top: var(--pad); }
+
+  /* Story: announcement, text inside the 9:16 safe box (14 % top, 35 % bottom, 6 % sides) */
+  .announce { background: var(--brand); color: var(--on-brand); }
+  .announce .safe { position: absolute; inset: 14% 6% 35% 6%; display: flex; flex-direction: column; justify-content: center; gap: 40px; }
+  .announce h1 { font-size: 120px; }
+  .announce p { font-size: 44px; line-height: 1.3; }
+  .announce .pill { align-self: flex-start; background: var(--accent); color: var(--brand); font: 600 40px/1 var(--font-text); padding: 24px 40px; border-radius: 999px; }
+
+  /* Carousel: three slides share one band that crosses slide edges */
+  .slide { padding: var(--pad); }
+  .slide .band { position: absolute; top: 760px; left: 0; height: 160px; width: 3240px; background: var(--accent); }
+  .s2 .band { transform: translateX(-1080px); }
+  .s3 .band { transform: translateX(-2160px); }
+  .slide h2 { font-size: 88px; max-width: 14ch; position: relative; }
+  .slide p { font-size: 40px; line-height: 1.35; max-width: 24ch; margin-top: 32px; color: var(--muted); position: relative; }
+  .slide .count { position: absolute; left: var(--pad); bottom: var(--pad); }
+  .slide .next { position: absolute; right: var(--pad); bottom: var(--pad); font: 600 34px/1 var(--font-text); color: var(--brand); }
+
+  /* Guides — visible while editing only */
+  body.guides .story::after { content: ""; position: absolute; inset: 14% 6% 35% 6%; outline: 3px dashed rgb(255 0 0 / .8); pointer-events: none; }
+  body.guides .post::after { content: ""; position: absolute; inset: var(--pad); outline: 2px dashed rgb(0 120 255 / .6); pointer-events: none; }
+</style>
+</head>
+<body class="guides">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 48 48"><path fill="currentColor" d="M8 8h20a12 12 0 0 1 0 24H16v8H8zm8 8v8h12a4 4 0 0 0 0-8z"/></symbol>
+</svg>
+
+<section class="frame post tip" data-frame="post-tip-01" data-size="1080x1350">
+  <span class="label">Порада тижня</span>
+  <div>
+    <h1 class="display">Зберігайте каву в&nbsp;темряві, не в&nbsp;холодильнику</h1>
+    <p style="margin-top:40px">Волога й запахи з холодильника вбивають аромат за кілька днів.</p>
+  </div>
+  <span class="logo"><svg><use href="#mark"/></svg></span>
+</section>
+
+<section class="frame story announce" data-frame="story-announce-01" data-size="1080x1920">
+  <div class="safe">
+    <span class="label" style="color:var(--on-brand)">Новинка</span>
+    <h1 class="display">Зимовий бленд уже в продажу</h1>
+    <p>250 г · 389 грн · доставка Новою поштою від&nbsp;1&nbsp;дня</p>
+    <span class="pill">Замовити</span>
+  </div>
+</section>
+
+<section class="frame post slide s1" data-frame="carousel-01" data-size="1080x1350">
+  <div class="band"></div>
+  <span class="label">3 помилки заварювання</span>
+  <h2 class="display" style="margin-top:48px">Чому ваша кава гірчить?</h2>
+  <span class="label count">1 / 3</span><span class="next">Гортайте →</span>
+</section>
+<section class="frame post slide s2" data-frame="carousel-02" data-size="1080x1350">
+  <div class="band"></div>
+  <h2 class="display">Окріп замість 92–96 °C</h2>
+  <p>Дайте воді постояти 30–40&nbsp;секунд після закипання.</p>
+  <span class="label count">2 / 3</span><span class="next">Далі →</span>
+</section>
+<section class="frame post slide s3" data-frame="carousel-03" data-size="1080x1350">
+  <div class="band"></div>
+  <h2 class="display">Помел не під спосіб</h2>
+  <p>Для фільтра — середній, для еспресо — дрібний.</p>
+  <span class="label count">3 / 3</span><span class="next">Збережіть пост</span>
+</section>
+</body>
+</html>

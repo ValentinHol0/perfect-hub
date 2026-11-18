@@ -1,0 +1,76 @@
+{
+  "skill_name": "absolute-project-planner-v2",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Design a high-concurrency, double-entry financial ledger service for a digital banking app. The service must process 10,000 transactions per second (TPS) peak write load, maintain strict ACID compliance, support multi-currency balances, and prevent double-spending. The design must be optimized for AWS, SOC2 compliant, and guarantee data consistency during network partitioning.",
+      "expected_output": "Comprehensive architectural blueprint of a FinTech ledger including SQL schemas (DDL), API specifications, threat modeling (STRIDE), FinOps hosting cost calculations, and a migration/deployment plan.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "has_sql_ddl",
+          "type": "contains",
+          "value": "CREATE TABLE"
+        },
+        {
+          "name": "has_api_endpoints",
+          "type": "contains",
+          "value": "/transactions"
+        },
+        {
+          "name": "has_council_debate",
+          "type": "contains",
+          "value": "Database Architect:"
+        },
+        {
+          "name": "has_stride_threats",
+          "type": "contains",
+          "value": "STRIDE"
+        },
+        {
+          "name": "has_rulings",
+          "type": "contains",
+          "value": "Rulings"
+        },
+        {
+          "name": "has_migration_plan",
+          "type": "contains",
+          "value": "migration"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Design a real-time matchmaking and session management service for a global multiplayer mobile shooter game. The service must match 100,000 active concurrent players based on matchmaking rating (MMR), geographical latency (<50ms), and queue wait times. Design the lobby system, matchmaking queues, regional scaling strategy, and failover recovery plans.",
+      "expected_output": "High-fidelity system architecture diagram/description, Redis/NoSQL data schemas, API designs, game server scaling models, latency optimization strategies, and disaster recovery SLA guarantees.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "has_redis_keys",
+          "type": "contains",
+          "value": "Redis"
+        },
+        {
+          "name": "has_sre_critique",
+          "type": "contains",
+          "value": "SRE:"
+        },
+        {
+          "name": "has_latency_optimization",
+          "type": "contains",
+          "value": "50ms"
+        },
+        {
+          "name": "has_cost_scaling",
+          "type": "contains",
+          "value": "100,000"
+        },
+        {
+          "name": "has_failover_recovery",
+          "type": "contains",
+          "value": "failover"
+        }
+      ]
+    }
+  ]
+}

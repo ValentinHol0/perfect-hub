@@ -1,0 +1,39 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "perfect-hub",
+  "displayName": "Perfect Hub",
+  "version": "4.0.0",
+  "description": "Perfect Hub: an office of specialist agents for Claude Code. /absolute convenes a council - product, architecture, frontend, backend, UI/UX, visual, security, QA, devops, mobile and domain experts propose, tear each other's ideas apart, credit what is genuinely strong and settle on a written decision, then build it behind TDD and review gates. /absolute-goal takes an idea all the way to release. Components: selling, ads, office documents, business (FOP), brand, social, marketing, research, translation and Perfect Antislop.",
+  "author": {
+    "name": "ValentinHol0",
+    "url": "https://github.com/ValentinHol0"
+  },
+  "homepage": "https://github.com/ValentinHol0/perfect-hub",
+  "repository": "https://github.com/ValentinHol0/perfect-hub",
+  "keywords": [
+    "perfect-hub",
+    "absolute",
+    "council",
+    "multi-agent",
+    "debate",
+    "goal",
+    "tdd",
+    "design",
+    "anti-slop",
+    "selling",
+    "ads",
+    "marketing",
+    "office",
+    "brand",
+    "social",
+    "research",
+    "translate",
+    "business"
+  ],
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "/absolute-goal зроби застосунок для запису клієнтів у барбершоп і доведи до релізу",
+    "/absolute-council Next.js чи Astro для сайту-каталогу на 2000 товарів?",
+    "/antislop перевір лендінг на шаблонні сліди ШІ"
+  ]
+}

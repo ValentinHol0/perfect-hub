@@ -1,0 +1,92 @@
+{
+  "name": "perfect-hub",
+  "version": "4.0.0",
+  "description": "Perfect Hub: an office of specialist agents for Claude Code. /absolute convenes a council - product, architecture, frontend, backend, UI/UX, visual, security, QA, devops, mobile and domain experts propose, tear each other's ideas apart, credit what is genuinely strong and settle on a written decision, then build it behind TDD and review gates. /absolute-goal takes an idea all the way to release. Components: selling, ads, office documents, business (FOP), brand, social, marketing, research, translation and Perfect Antislop.",
+  "author": {
+    "name": "ValentinHol0",
+    "url": "https://github.com/ValentinHol0"
+  },
+  "homepage": "https://github.com/ValentinHol0/perfect-hub",
+  "repository": "https://github.com/ValentinHol0/perfect-hub",
+  "keywords": [
+    "perfect-hub",
+    "absolute",
+    "council",
+    "multi-agent",
+    "debate",
+    "goal",
+    "tdd",
+    "design",
+    "anti-slop",
+    "selling",
+    "ads",
+    "marketing",
+    "office",
+    "brand",
+    "social",
+    "research",
+    "translate",
+    "business"
+  ],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/guard.js\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "compact|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/restore-state.js\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/pre-compact.js\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/goal-guard.js\"",
+            "timeout": 20
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/lint-on-edit.js\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  },
+  "icon": "assets/icon.png"
+}

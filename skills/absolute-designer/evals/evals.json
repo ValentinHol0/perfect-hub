@@ -1,0 +1,23 @@
+{
+  "skill_name": "absolute-designer",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Design a high-fidelity bento-grid dashboard UI for a video automation pipeline. Provide color palette hex values (background, surfaces, accents), typography configurations, and list custom layout sections (pipeline throughput cards, active runs, previews).",
+      "expected_output": "Design Read + dials, cited references, one committed direction with contrast-verified token block (script output), bento layout plan with ASCII wireframe, pre-flight score.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "Design a premium e-commerce product catalog grid matching luxteck brand aesthetics. Document the WCAG-compliant color palette (text contrast checks), typography styling for heading/body, and the product card card structure.",
+      "expected_output": "Product catalog design with references, token block verified by contrast.mjs, Cyrillic-safe typography if Ukrainian copy, product card states, pre-flight score.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Make my landing page for a Ukrainian specialty coffee subscription look less AI-generated. Current page: cream background, Playfair headline, terracotta buttons, three identical feature cards with emoji icons.",
+      "expected_output": "Identifies saturated defaults (cream+serif+terracotta, identical cards, emoji icons), proposes a different committed direction with [Cyr] fonts, verified tokens, rewritten section families and copy, and a pre-flight score.",
+      "files": []
+    }
+  ]
+}

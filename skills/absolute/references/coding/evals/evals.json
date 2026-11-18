@@ -1,0 +1,17 @@
+{
+  "skill_name": "absolute (coding standards)",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Write an Express.js controller that handles order creation. It must use a Prisma transaction ($transaction) to perform atomic checks, deduct product stock, record the order, and record an idempotency key to prevent duplicate checkouts. It must sort input items to prevent deadlocks and use proper error handling.",
+      "expected_output": "Express controller code using Prisma transaction block ($transaction), item sorting, and idempotency key handling.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "Write an async worker class in TypeScript that processes a download queue using yt-dlp-wrap and updates video statuses in a SQLite database using better-sqlite3. Incorporate try-catch blocks and transaction updates.",
+      "expected_output": "TypeScript queue handler using yt-dlp-wrap and better-sqlite3 with error logging.",
+      "files": []
+    }
+  ]
+}
