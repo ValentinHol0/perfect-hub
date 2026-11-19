@@ -107,5 +107,11 @@
   {"query":"Postgres чи Firebase для застосунку запису в барбершоп? Хочу, щоб кілька експертів посперечалися і дали рішення","expect":"absolute-council"},
   {"query":"Get a council of experts to decide between Stripe Checkout and a custom payment form for our store","expect":"absolute-council"},
   {"query":"Перевір наш лендінг на шаблонні сліди ШІ і перепиши тексти, щоб звучали по-людськи","expect":"antislop"},
-  {"query":"This landing page looks AI-generated - remove the generic gradients, icon tiles and buzzwords","expect":"antislop"}
+  {"query":"This landing page looks AI-generated - remove the generic gradients, icon tiles and buzzwords","expect":"antislop"},
+  {"query":"Зроби повний SEO-аудит сайту example.com.ua","expect":"seo"},
+  {"query":"Чому мій сайт не індексується в Google і як це виправити?","expect":"seo"},
+  {"query":"Check the schema markup and Core Web Vitals on https://shop.example.com/product/1","expect":"seo"},
+  {"query":"Як зробити, щоб ChatGPT і AI Overviews цитували наш сайт?","expect":"seo"},
+  {"query":"Analyse backlinks and local SEO for our dental clinic website","expect":"seo"},
+  {"query":"Згенеруй sitemap.xml і перевір hreflang для трьох мов","expect":"seo"}
 ]

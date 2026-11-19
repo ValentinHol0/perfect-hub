@@ -1,0 +1,30 @@
+{
+  "upstream": "https://github.com/AgriciDaniel/claude-seo",
+  "license": "MIT",
+  "version": "2.6.2",
+  "synced": "2026-11-19",
+  "upstream_hub_sha256": "870f414f30ff0def113f0804a67d5cf64bfb49f566c9f740a0af2a9aa5083970",
+  "agents": [
+    "seo-agentic.md",
+    "seo-backlinks.md",
+    "seo-cluster.md",
+    "seo-content.md",
+    "seo-dataforseo.md",
+    "seo-drift.md",
+    "seo-ecommerce.md",
+    "seo-flow.md",
+    "seo-geo.md",
+    "seo-google.md",
+    "seo-image-gen.md",
+    "seo-local.md",
+    "seo-maps.md",
+    "seo-matomo.md",
+    "seo-performance.md",
+    "seo-posthog.md",
+    "seo-schema.md",
+    "seo-sitemap.md",
+    "seo-sxo.md",
+    "seo-technical.md",
+    "seo-visual.md"
+  ]
+}

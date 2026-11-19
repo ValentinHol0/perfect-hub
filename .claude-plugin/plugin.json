@@ -1,7 +1,7 @@
 {
   "name": "perfect-hub",
-  "version": "4.0.0",
-  "description": "Perfect Hub: an office of specialist agents. /absolute convenes a council of product, architecture, frontend, backend, UX, visual, security, QA, devops and domain experts who propose, critique each other hard, credit what is strong and reach a written decision, then build behind TDD and review gates. /absolute-goal takes an idea to release; /antislop removes AI template traces. Components: selling, ads, office, business, brand, social, marketing, research, translate.",
+  "version": "4.1.0",
+  "description": "Perfect Hub: an office of specialist agents. /absolute convenes a council of product, architecture, frontend, backend, UX, visual, security, QA, devops and domain experts who propose, critique each other hard, credit what is strong and reach a written decision, then build behind TDD and review gates. /absolute-goal takes an idea to release; /antislop removes AI template traces. Components: seo, selling, ads, office, business, brand, social, marketing, research, translate.",
   "author": {
     "name": "ValentinHol0",
     "url": "https://github.com/ValentinHol0"
@@ -10,6 +10,7 @@
   "repository": "https://github.com/ValentinHol0/perfect-hub",
   "keywords": [
     "perfect-hub",
+    "seo",
     "absolute",
     "council",
     "multi-agent",
@@ -83,6 +84,11 @@
             "type": "command",
             "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/lint-on-edit.js\"",
             "timeout": 15
+          },
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/seo-schema-hook.js\"",
+            "timeout": 30
           }
         ]
       }

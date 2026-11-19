@@ -24,6 +24,7 @@ Rulings when not asking: missing price → write copy that works without it and 
 |---|---|
 | Landing page, product page, email or ad text, headlines, CTAs, objection handling, editing copy | `references/copy.md` |
 | Keyword research, search intent, content plan, content brief, article optimisation, internal links, E-E-A-T, being cited by ChatGPT / AI Overviews (GEO) | `references/content-seo.md` |
+| Audit of a live site, technical SEO, schema, sitemaps, Core Web Vitals, Search Console or SERP data, AI-search readiness | `/seo` (Perfect Hub skill) — it measures; this skill writes the copy its findings call for |
 | Tracking plan, events, conversions/key events, GA4 or PostHog setup plan, UTM links, consent mode and cookie banner requirements | `references/analytics-plan.md` |
 | A/B test design, hypothesis, sample size, duration, MDE, guardrails, reading results, SRM | `references/experiments.md` |
 | Welcome, abandoned cart, post-purchase, win-back flows, newsletters, SPF/DKIM/DMARC and deliverability | `references/email.md` |

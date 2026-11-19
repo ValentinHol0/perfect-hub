@@ -73,6 +73,7 @@ Never more than two critique rounds. Stop early when R3 changes no position and 
 | Mobile (`absolute-mobile`) | Offline, store review, platform conventions? | device and store checklist |
 | Antislop (`antislop-critic`) | What is generic, padded, AI-looking or unneeded? | delete-until-it-breaks |
 | Contrarian (`absolute-contrarian`) | What if the premise is wrong? | pre-mortem, inversion |
+| SEO (`seo-technical`) | Can search and AI engines crawl, render and rank it? | rendering and URL audit, bundled checks |
 | Domain seats | Selling, Ads, Office, Business, Brand, Social, Marketing, Research, Translate agents | the component's checklist and scripts |
 
 ## Dissent and the record

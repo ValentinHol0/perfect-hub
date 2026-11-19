@@ -4,12 +4,12 @@ Run the part that matches the product. Store and platform rules change every yea
 
 ## A. Website / web app launch
 **Automated:** `node "<PLUGIN_ROOT>/scripts/site-check.mjs" <build dir> --prod` (0 errors) · `shots.mjs` at 375/768/1280 (+ `--focus`, `--nojs` for content sites) · verifier performance budget · `code-scan.mjs . --risks --fail-on high` (no new high markers).
-**Technical SEO and sharing**
+**Technical SEO and sharing** — run `/seo technical <url>` and `/seo schema <url>` on staging or production (0 Critical; public sites that live on search: full `/seo audit`). The list below is the minimum it checks.
 - Every indexable page: unique `<title>` and meta description, absolute `canonical`, one `h1`, `lang` on `<html>`, Open Graph + `twitter:card` with an absolute `og:image` (absolute-assets §4).
 - `robots.txt` allows production crawling (staging/previews: `noindex` header or basic auth, never shipped to production); `sitemap.xml` with absolute production URLs, referenced from robots.txt; submit in Google Search Console / Bing Webmaster Tools after launch (user's accounts — give the steps).
 - Redirects: old URLs → new with 301 (308 for non-GET), no chains, `http → https`, one host (`www` or apex); trailing-slash policy consistent with canonicals.
 - 404 page returns status 404 (not 200), links home and to search/catalogue; soft-404s fixed.
-- Structured data (JSON-LD) for the page types that have it: `Organization`/`LocalBusiness` (name, address, phone, opening hours), `Product` + `Offer` (price, currency, availability), `BreadcrumbList`, `Article`, `FAQPage` only for real FAQ content. Validate with Google's Rich Results Test (manual step) — no markup for content that isn't visible.
+- Structured data (JSON-LD) for the page types that have it: `Organization`/`LocalBusiness` (name, address, phone, opening hours), `Product` + `Offer` (price, currency, availability), `BreadcrumbList`, `Article`, no new `FAQPage` for search benefit (Google retired FAQ rich results in May 2026; use `QAPage` for real user Q&A), no `HowTo`. Validate with Google's Rich Results Test (manual step) — no markup for content that isn't visible.
 - Multilingual: `hreflang` pairs incl. self-reference and `x-default`; one language per URL; translated slugs/metadata (perfect-translate component for the content).
 - Rendering: content and links present in server HTML (or prerendered) for public pages; no JS-only navigation for primary links.
 **Platform hygiene**
