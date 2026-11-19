@@ -28,8 +28,8 @@ test('sync transforms: root paths, footer, agents, runtime', () => {
   assert.ok(f.removed);
   assert.equal(f.text, '# Hub\n\n## Reference Files\nkeep');
   const agent = convertAgent('---\nname: seo-x\ndescription: Does X.\nmodel: sonnet\nmaxTurns: 30\ntools: Read, Bash, Write  # note\n---\n\nRun `${CLAUDE_PLUGIN_ROOT}/scripts/a.py`.\n', { seat: true });
-  assert.match(agent, /^---\nname: seo-x\ndescription: "Does X\."\nmodel: inherit\nmaxTurns: 30\ndisallowedTools:\n  - Edit\n  - NotebookEdit\n---\n/);
-  assert.ok(!/^tools:/m.test(agent));
+  assert.match(agent, /^---\nname: seo-x\ndescription: "Does X\."\nmodel: inherit\nmaxTurns: 30\ntools:\n  - Read\n  - Bash\n  - Write\n---\n/);
+  assert.throws(() => convertAgent('---\nname: seo-y\ndescription: Y.\n---\nbody'), /no tools allowlist/);
   assert.ok(agent.includes('<PLUGIN_ROOT>/seo/scripts/a.py'));
   assert.ok(agent.includes('## Council seat'));
   const py = 'return (root / ".claude-plugin" / "plugin.json").is_file() and not (root / ".git").exists()\nreturn (base / "claude-seo").resolve(), "plugin-fallback"';
@@ -69,7 +69,7 @@ test('every script a guide or agent runs is bundled', () => {
   assert.deepEqual([...missing], []);
 });
 
-test('agents: every vendored agent exists and is valid for both harnesses', () => {
+test('agents: every vendored agent exists and keeps the upstream permission model', () => {
   const v = JSON.parse(readFileSync(join(SEO, 'VENDORED.json'), 'utf8'));
   assert.ok(v.agents.length >= 20);
   for (const a of v.agents) {
@@ -77,8 +77,16 @@ test('agents: every vendored agent exists and is valid for both harnesses', () =
     const fm = t.split('\n---')[0];
     assert.match(fm, new RegExp(`^---\\nname: ${a.replace('.md', '')}\\n`));
     assert.match(fm, /\nmodel: inherit/);
-    assert.ok(!/\ntools:/.test(fm), `${a} keeps tools:`);
+    const block = (fm.match(/\ntools:\n((?: {2}- .*\n?)+)/) || [])[1];
+    assert.ok(block, `${a} lost its tools allowlist (YAML list)`);
+    const list = block.trim().split('\n').map((s) => s.replace(/^\s*- /, '').trim());
+    // agents that read untrusted pages with Bash never get an MCP grant (paid APIs)
+    if (list.includes('Bash')) assert.ok(!list.some((x) => x.startsWith('mcp__')), `${a}: Bash and MCP together`);
+    // MCP agents get no shell and no open web
+    if (list.some((x) => x.startsWith('mcp__'))) for (const x of ['Bash', 'WebFetch', 'WebSearch']) assert.ok(!list.includes(x), `${a}: MCP agent has ${x}`);
   }
+  const df = readFileSync(join(ROOT, 'agents', 'seo-dataforseo.md'), 'utf8');
+  assert.match(df, /\ntools:\n(?: {2}- .*\n)*? {2}- mcp__dataforseo__\*\n/);
   assert.ok(readFileSync(join(ROOT, 'agents', 'seo-technical.md'), 'utf8').includes('## Council seat'));
 });
 

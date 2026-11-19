@@ -124,6 +124,10 @@ for (const rel of walk('')) {
 
 // 4. Agents: frontmatter valid in BOTH harnesses
 const AG_MODELS = new Set(['inherit', 'flash_lite', 'flash', 'pro']);
+// Vendored SEO agents keep upstream's tools allowlist: it is their security model
+// (no MCP for agents that read untrusted pages with Bash; no Bash for paid-API agents).
+let vendoredAgents = new Set();
+try { vendoredAgents = new Set(JSON.parse(read('seo/VENDORED.json')).agents || []); } catch { /* no vendored engine */ }
 for (const f of (exists('agents') ? readdirSync(join(ROOT, 'agents')) : []).filter((n) => n.endsWith('.md'))) {
   const rel = `agents/${f}`;
   const fm = frontmatter(read(rel));
@@ -131,7 +135,8 @@ for (const f of (exists('agents') ? readdirSync(join(ROOT, 'agents')) : []).filt
   const { data } = fm;
   if (data.name !== f.replace(/\.md$/, '')) err(`${rel}: name must equal file name`);
   if (!data.description) err(`${rel}: description missing`);
-  if ('tools' in data) err(`${rel}: "tools" breaks one harness (Claude and Antigravity use different tool names) — omit it; restrict with disallowedTools (Claude) and prose`);
+  if ('tools' in data && vendoredAgents.has(f) && !Array.isArray(data.tools)) err(`${rel}: "tools" must be a YAML list (Antigravity rejects a comma-separated string)`);
+  if ('tools' in data && !vendoredAgents.has(f)) err(`${rel}: "tools" breaks one harness (Claude and Antigravity use different tool names) — omit it; restrict with disallowedTools (Claude) and prose`);
   if (data.model && !AG_MODELS.has(data.model)) err(`${rel}: model "${data.model}" is invalid in Antigravity — use inherit and choose tiers at dispatch`);
   if (data.disallowedTools && !Array.isArray(data.disallowedTools)) err(`${rel}: disallowedTools must be a YAML list`);
 }
