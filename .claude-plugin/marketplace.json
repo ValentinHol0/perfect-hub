@@ -10,7 +10,7 @@
     {
       "name": "perfect-hub",
       "source": "./",
-      "description": "Perfect Hub: an office of specialist agents for Claude Code. /absolute convenes a council - product, architecture, frontend, backend, UI/UX, visual, security, QA, devops, mobile and domain experts propose, tear each other's ideas apart, credit what is genuinely strong and settle on a written decision, then build it behind TDD and review gates. /absolute-goal takes an idea all the way to release. Components: selling, ads, office documents, business (FOP), brand, social, marketing, research, translation and Perfect Antislop.",
+      "description": "Perfect Hub: an office of specialist agents. /absolute convenes a council of product, architecture, frontend, backend, UX, visual, security, QA, devops and domain experts who propose, critique each other hard, credit what is strong and reach a written decision, then build behind TDD and review gates. /absolute-goal takes an idea to release; /antislop removes AI template traces. Components: selling, ads, office, business, brand, social, marketing, research, translate.",
       "version": "4.0.0"
     }
   ]

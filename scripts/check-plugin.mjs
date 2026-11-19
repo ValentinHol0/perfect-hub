@@ -49,10 +49,15 @@ try { ag = JSON.parse(read('.antigravity-plugin/plugin.json')); } catch (e) { er
 if (claude && ag) {
   if (claude.name !== ag.name) err(`manifest names differ: ${claude.name} vs ${ag.name}`);
   if (claude.version !== ag.version) err(`manifest versions differ: ${claude.version} vs ${ag.version}`);
+  // claude.ai rejects an uploaded plugin whose description exceeds 500 characters
+  for (const [rel, d] of [['.claude-plugin/plugin.json', claude.description], ['.antigravity-plugin/plugin.json', ag.description]]) {
+    if (d && d.length > 500) err(`${rel}: description ${d.length} chars (claude.ai upload limit 500)`);
+  }
   if (exists('.claude-plugin/marketplace.json')) {
     try {
       const entry = (JSON.parse(read('.claude-plugin/marketplace.json')).plugins || []).find((p) => p.name === claude.name);
       if (entry && entry.version && entry.version !== claude.version) err(`marketplace.json lists ${entry.version}, plugin.json is ${claude.version}`);
+      if (entry && entry.description && entry.description.length > 500) err(`marketplace.json: description ${entry.description.length} chars (max 500)`);
     } catch (e) { err(`.claude-plugin/marketplace.json: ${e.message}`); }
   }
   const agAllowed = new Set(['$schema', 'name', 'displayName', 'display_name', 'description', 'version', 'disabled', 'logo', 'suggestedPrompts', 'suggested_prompts', 'skills', 'author', 'homepage', 'repository', 'license', 'keywords', 'extensions']);
