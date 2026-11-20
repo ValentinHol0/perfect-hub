@@ -1,6 +1,6 @@
 ---
 name: seo-cluster
-description: ">"
+description: "Semantic topic clustering analysis using SERP overlap methodology. Expands seed keywords, performs pairwise SERP comparison, classifies intent, designs hub-and-spoke content architecture, and generates internal link matrices."
 model: inherit
 maxTurns: 40
 tools:

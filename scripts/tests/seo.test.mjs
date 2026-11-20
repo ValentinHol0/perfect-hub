@@ -30,6 +30,8 @@ test('sync transforms: root paths, footer, agents, runtime', () => {
   const agent = convertAgent('---\nname: seo-x\ndescription: Does X.\nmodel: sonnet\nmaxTurns: 30\ntools: Read, Bash, Write  # note\n---\n\nRun `${CLAUDE_PLUGIN_ROOT}/scripts/a.py`.\n', { seat: true });
   assert.match(agent, /^---\nname: seo-x\ndescription: "Does X\."\nmodel: inherit\nmaxTurns: 30\ntools:\n  - Read\n  - Bash\n  - Write\n---\n/);
   assert.throws(() => convertAgent('---\nname: seo-y\ndescription: Y.\n---\nbody'), /no tools allowlist/);
+  const folded = convertAgent('---\nname: seo-z\ndescription: >\n  Semantic clustering using\n  SERP overlap.\nmodel: opus\ntools: Read\n---\nbody');
+  assert.match(folded, /\ndescription: "Semantic clustering using SERP overlap\."\n/);
   assert.ok(agent.includes('<PLUGIN_ROOT>/seo/scripts/a.py'));
   assert.ok(agent.includes('## Council seat'));
   const py = 'return (root / ".claude-plugin" / "plugin.json").is_file() and not (root / ".git").exists()\nreturn (base / "claude-seo").resolve(), "plugin-fallback"';
@@ -77,7 +79,9 @@ test('agents: every vendored agent exists and keeps the upstream permission mode
     const fm = t.split('\n---')[0];
     assert.match(fm, new RegExp(`^---\\nname: ${a.replace('.md', '')}\\n`));
     assert.match(fm, /\nmodel: inherit/);
-    const block = (fm.match(/\ntools:\n((?: {2}- .*\n?)+)/) || [])[1];
+    const desc = (fm.match(/\ndescription: "(.*)"\n/) || [])[1] || '';
+    assert.ok(desc.length >= 40 && !/^[>|]/.test(desc), `${a}: description lost (${desc})`);
+    const block =(fm.match(/\ntools:\n((?: {2}- .*\n?)+)/) || [])[1];
     assert.ok(block, `${a} lost its tools allowlist (YAML list)`);
     const list = block.trim().split('\n').map((s) => s.replace(/^\s*- /, '').trim());
     // agents that read untrusted pages with Bash never get an MCP grant (paid APIs)

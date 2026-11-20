@@ -1,6 +1,6 @@
 ---
 name: seo-sxo
-description: ">"
+description: "Search Experience Optimization analyst. Performs SERP backwards analysis to detect page-type mismatches, derives user stories from intent signals, and scores pages from multiple persona perspectives. Identifies why well-optimized content fails to rank."
 model: inherit
 maxTurns: 35
 tools:

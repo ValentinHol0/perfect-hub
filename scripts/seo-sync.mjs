@@ -65,9 +65,14 @@ export function convertAgent(src, { seat = false } = {}) {
   const m = src.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
   if (!m) throw new Error('agent has no frontmatter');
   const fm = {};
+  let block = null; // key of an open YAML block scalar (`key: >` or `key: |`)
   for (const line of m[1].split(/\r?\n/)) {
+    if (block && /^\s+\S/.test(line)) { fm[block] = `${fm[block]} ${line.trim()}`.trim(); continue; }
+    block = null;
     const kv = line.match(/^([A-Za-z][\w-]*):\s*(.*)$/);
-    if (kv) fm[kv[1]] = kv[2].replace(/\s+#.*$/, '').trim();
+    if (!kv) continue;
+    const value = kv[2].replace(/\s+#.*$/, '').trim();
+    if (/^[>|][+-]?$/.test(value)) { block = kv[1]; fm[kv[1]] = ''; } else fm[kv[1]] = value;
   }
   if (!fm.name || !fm.description) throw new Error('agent frontmatter needs name and description');
   // The tools allowlist is upstream's security model and stays exact: agents that

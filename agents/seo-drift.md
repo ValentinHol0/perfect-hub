@@ -1,6 +1,6 @@
 ---
 name: seo-drift
-description: ">"
+description: "SEO drift analysis agent. Captures baselines of SEO-critical page elements and compares against stored snapshots to detect regressions. Reports changes with severity classification. Only spawned when a drift baseline exists for the URL."
 model: inherit
 maxTurns: 30
 tools:
